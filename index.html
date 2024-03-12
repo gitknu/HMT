@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>ЗооКНУТШ</title>
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,900&display=swap" rel="stylesheet">
+<style>
+* {
+  box-sizing: border-box;
+}
+body,#Search{text-align: center;}
+#Search {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/221px-Vector_search_icon.svg.png');
+  background-position: 10px 10px;;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  width: 60%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  border-radius: 25px;
+}
+#Search:focus {
+  outline:none
+}
+#dbase {
+  border-collapse: collapse;
+  width: 85%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  margin-bottom:40px;
+}
+#dbase th, #dbase td {
+  text-align: left;
+  padding: 12px;
+  text-align: center;
+}
+#dbase tr {
+  border-bottom: 1px solid #ddd;
+
+}
+#dbase tr.header, #dbase tr:hover {
+  background-color: #f1f1f1;
+}
+a:hover {
+  color: #c71b00;
+  text-decoration: none;
+}
+h2, h1, p {
+  font-family: 'Nunito Sans', sans-serif;
+}
+@keyframes artshadow {
+  from {}
+  to {text-shadow: 2px 2px 5px black;}
+}
+h1 {
+  color: #bf2713;
+}
+</style>
+</head>
+<body>
+<h1><b>ДОВІДНИК ВЗЯО <br>( ЗНО / НМТ )</b></h1>
+<h5 style="color: #303234;"><i>швидке рішення нагальних питань</i></h5>
+<div class="centerenter">
+<input type="text" id="Search" onkeyup="searchFn()" placeholder="Шукайте легко, шукайте швидко!" title="Просто введіть запит">
+</div>
+<div class="tablesearch">
+<table id="dbase" align="center">
+<tr class="header"> <!--anim_num-->
+<th style="width:33%">Питання</th> <!--img-->
+<th style="width:33%">Відповідь</th> <!--name-->
+<th style="width:33%">Більше</th> <!--info-->
+</tr>
+
+
+<tr>
+    <td class="img"><b>
+        
+        ЯКІ ОСОБЛИВОСТІ ЗНО 2024???
+        
+    </b><span style="display:none;">
+        
+        Єхидна коротконоса австралійська, австралійська коротконоса єхдина, коротконоса австралійська єхидна
+        
+        </span></td>
+    <td class="info">
+        
+       ЗНО 2024 відрізняється від попередніх років наступними особливостями: Збільшена кількість обов'язкових дисциплін, включаючи історію України. Усі предмети складаються в один день, тривалість іспиту становить 4 години з перервою на 20 хвилин між блоками. Учасники можуть вибрати один предмет на вибір зі списку. Для вступу в ЗВО у 2024 році можна використовувати сертифікати ЗНО з попередніх років та результати НМТ. Структура предметних тестів залишається без змін, що дозволяє учасникам готуватися до іспитів, використовуючи завдання з попередніх років.        
+        </td>
+    <td class="year"><a href="https://google.com"><img src="https://i.ibb.co/N2sqFrf/chart.png" style="width: 150px; height: 150px; border-radius: 50%;"></a></td>
+</tr>
+
+
+<tr>
+    <td class="img"><b>
+        
+        ЯК ДОВГО ЧЕКАТИ РЕЗУЛЬТАТИ???
+        
+    </b><span style="display:none;">
+        
+        Єхидна коротконоса австралійська, австралійська коротконоса єхдина, коротконоса австралійська єхидна
+        
+        </span></td>
+    <td class="info">
+        
+       Чекати результати першого тесту з української мови та літератури можна близько 2 тижнів, а публікація результатів ЗНО з інших предметів займе трохи менше часу. Результати можна перевірити на своїй інформаційній сторінці, де також будуть розміщуватися запрошення-перепустки на ЗНО та інформація про всі пройдені іспити.        </td>
+    <td class="year"><a href="https://google.com"><img src="https://i.ibb.co/N2sqFrf/chart.png" style="width: 150px; height: 150px; border-radius: 50%;"></a></td>
+</tr>
+
+</table>
+</div>
+<p><i>оригінальна розробка - <a href = "https://micahlt.github.io/">Micah Lindley</a></i></p>
+<script>function searchFn() {
+  var input = document.getElementById("Search");
+  var filter = input.value.toUpperCase();
+  var table = document.getElementById("dbase");
+  var trs = table.tBodies[0].getElementsByTagName("tr");
+  for (var i = 0; i < trs.length; i++) {
+    var tds = trs[i].getElementsByTagName("td");
+    trs[i].style.display = "none";
+    for (var i2 = 0; i2 < tds.length; i2++) {
+      if (tds[i2].innerHTML.toUpperCase().indexOf(filter) > -1) {
+        trs[i].style.display = "";
+        continue;
+      }
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var infoCells = document.querySelectorAll('.info');
+  infoCells.forEach(function(cell) {
+    var text = cell.innerHTML;
+    var truncatedText = text.slice(0, 80);
+    if (text.length > 80) {
+      cell.innerHTML = truncatedText + '...';
+      var dropdownButton = document.createElement('button');
+      dropdownButton.innerHTML = '⮟';
+      dropdownButton.addEventListener('click', function() {
+        if (cell.innerHTML === text) {
+          cell.innerHTML = truncatedText + '...';
+          dropdownButton.innerHTML = '⮟';
+        } else {
+          cell.innerHTML = text;
+        }
+      });
+      dropdownButton.style.borderRadius = '50%';
+      cell.appendChild(dropdownButton);
+    }
+  });
+});
+</script>
+</body>
+</html>
